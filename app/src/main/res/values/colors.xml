@@ -6,8 +6,11 @@
     <color name="grey_700">#646464</color>
     <color name="black">#000000</color>
 
-    <color name="sunshine_light_blue">#ff64c2f4</color>
-    <color name="sunshine_blue">#ff1ca8f4</color>
-    <color name="sunshine_dark_blue">#0288D1</color>
+    <color name="sunshine_light_blue">#f9a62e</color>
+    <color name="sunshine_blue">#fb7335</color>
+    <color name="sunshine_dark_blue">#e25819</color>
 
+    <color name="solshine_light_orange">#f9a62e</color>
+    <color name="solshine_orange">#fb7335</color>
+    <color name="solshine_dark_orange">#e25819</color>
 </resources>
