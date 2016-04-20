@@ -36,6 +36,7 @@ import android.widget.TextView;
 
 import com.example.admin.solshine.data.WeatherContract;
 import com.example.admin.solshine.data.WeatherContract.WeatherEntry;
+import com.example.admin.solshine.data.WeatherContract.LocationEntry;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -64,6 +65,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             WeatherEntry.COLUMN_WIND_SPEED,
             WeatherEntry.COLUMN_DEGREES,
             WeatherEntry.COLUMN_WEATHER_ID,
+            LocationEntry.COLUMN_CITY_NAME,
             // This works because the WeatherProvider returns location data joined with
             // weather data, even though they're stored in two different tables.
             WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING
@@ -81,6 +83,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public static final int COL_WEATHER_WIND_SPEED = 7;
     public static final int COL_WEATHER_DEGREES = 8;
     public static final int COL_WEATHER_CONDITION_ID = 9;
+    public static final int COL_CITY_NAME = 9;
 
     private ImageView mIconView;
     private TextView mFriendlyDateView;
@@ -227,6 +230,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
             // We still need this for the share intent
             mForecast = String.format("%s - %s - %s/%s", dateText, description, high, low);
+
+            String location = data.getString(COL_CITY_NAME);
 
             // If onCreateOptionsMenu has already happened, we need to update the share intent now.
             if (mShareActionProvider != null) {
