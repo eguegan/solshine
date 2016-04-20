@@ -13,4 +13,6 @@
     <color name="solshine_light_orange">#FFE872</color>
     <color name="solshine_orange">#fb7335</color>
     <color name="solshine_dark_orange">#e25819</color>
+    <color name="solshine_hot_red">#FF3D00</color>
+    <color name="solshine_cold_blue">#00B0C3</color>
 </resources>
