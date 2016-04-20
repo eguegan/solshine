@@ -139,7 +139,7 @@ public class Utility {
         Time time = new Time();
         time.setToNow();
         SimpleDateFormat dbDateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);
-        SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMMM dd");
+        SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMMM dd yyyy");
         String monthDayString = monthDayFormat.format(dateInMillis);
         return monthDayString;
     }
