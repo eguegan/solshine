@@ -68,7 +68,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             LocationEntry.COLUMN_CITY_NAME,
             // This works because the WeatherProvider returns location data joined with
             // weather data, even though they're stored in two different tables.
-            WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING
+            LocationEntry.COLUMN_LOCATION_SETTING
     };
 
     // These indices are tied to DETAIL_COLUMNS.  If DETAIL_COLUMNS changes, these
@@ -83,7 +83,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public static final int COL_WEATHER_WIND_SPEED = 7;
     public static final int COL_WEATHER_DEGREES = 8;
     public static final int COL_WEATHER_CONDITION_ID = 9;
-    public static final int COL_CITY_NAME = 9;
+    public static final int COL_CITY_NAME = 10;
 
     private ImageView mIconView;
     private TextView mFriendlyDateView;
@@ -94,6 +94,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     private TextView mHumidityView;
     private TextView mWindView;
     private TextView mPressureView;
+    private TextView mCityName;
 
     public DetailFragment() {
         setHasOptionsMenu(true);
@@ -118,6 +119,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         mHumidityView = (TextView) rootView.findViewById(R.id.detail_humidity_textview);
         mWindView = (TextView) rootView.findViewById(R.id.detail_wind_textview);
         mPressureView = (TextView) rootView.findViewById(R.id.detail_pressure_textview);
+        mCityName = (TextView) rootView.findViewById(R.id.detail_location_textview);
+
         return rootView;
     }
 
@@ -232,6 +235,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             mForecast = String.format("%s - %s - %s/%s", dateText, description, high, low);
 
             String location = data.getString(COL_CITY_NAME);
+            mCityName.setText(location);
 
             // If onCreateOptionsMenu has already happened, we need to update the share intent now.
             if (mShareActionProvider != null) {
