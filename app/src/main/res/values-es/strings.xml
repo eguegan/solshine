@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <string name="action_settings">Configuracion</string>
+    <string name="action_map">Ubicacion con Mapa</string>
+    <string name="action_share">Compartir</string>
+
+    <string name="title_activity_detail">Detalles</string>
+    <string name="title_activity_settings">Configuracion</string>
+
+    <!-- Label for the location preference [CHAR LIMIT=30] -->
+    <string name="pref_location_label">Ubicacion (Ciudad)</string>
+
+    <string name="pref_enable_notifications_label">Notificaciones del Clima</string>
+
+    <string name="pref_enable_notifications_true">Activado</string>
+    <string name="pref_enable_notifications_false">Desactivado</string>
+
+    <!-- Strings for formatting weather-related data -->
+
+    <!-- Label for the temperature units preference [CHAR LIMIT=30] -->
+    <string name="pref_units_label">Medida de Temperatura</string>
+
+    <!-- Label for metric option in temperature unit preference [CHAR LIMIT=25] -->
+    <string name="pref_units_label_metric">Celcius</string>
+
+    <!-- Label for imperial option in temperature unit preference [CHAR LIMIT=25] -->
+    <string name="pref_units_label_imperial">Farenheit</string>
+
+    <!-- Language-specific constants -->
+    <string name="today">Hoy</string>
+
+    <!-- For labelling tomorrow's forecast [CHAR LIMIT=15] -->
+    <string name="tomorrow">Mañana</string>
+
+    <!-- Notification Format -->
+    <string name="format_notification">Clima: <xliff:g id="condition">%1$s</xliff:g> High: <xliff:g id="high">%2$s</xliff:g> Low: <xliff:g id="low">%3$s</xliff:g></string>
+
+    <string name="temperature">Temperatura</string>
+
+</resources>

@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.admin.solshine.data.WeatherContract;
 import com.example.admin.solshine.sync.SunshineSyncAdapter;
 
 public class MainActivity extends AppCompatActivity implements ForecastFragment.Callback {
@@ -38,21 +39,17 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         mLocation = Utility.getPreferredLocation(this);
 
         setContentView(R.layout.activity_main);
-        if (findViewById(R.id.weather_detail_container) != null) {
+
             mTwoPane = true;
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction()
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.weather_detail_container, new DetailFragment(), DETAILFRAGMENT_TAG)
                         .commit();
             }
-        } else {
-            mTwoPane = false;
-//            getSupportActionBar().setElevation(0f);
-        }
+
 
         ForecastFragment forecastFragment =  ((ForecastFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_forecast));
-        forecastFragment.setUseTodayLayout(!mTwoPane);
 
         SunshineSyncAdapter.initializeSyncAdapter(this);
     }
@@ -97,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
 
     @Override
     public void onItemSelected(Uri contentUri) {
-        if (mTwoPane) {
             Bundle args = new Bundle();
             args.putParcelable(DetailFragment.DETAIL_URI, contentUri);
 
@@ -105,12 +101,8 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
             fragment.setArguments(args);
 
             getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.weather_detail_container, fragment, DETAILFRAGMENT_TAG)
                     .commit();
-        } else {
-            Intent intent = new Intent(this, DetailActivity.class)
-                    .setData(contentUri);
-            startActivity(intent);
-        }
     }
 }
