@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,9 +28,6 @@
         android:background="@color/primary"
         android:contentDescription="@string/app_name"/>
 
-    <!-- This view is used to provide the area that is overlapped
-         as well as the anchor point that the weather detail will
-         use to overlap the "appbar" -->
     <View
         android:elevation="@dimen/appbar_elevation"
         android:background="@color/primary"
@@ -42,7 +39,8 @@
         android:id="@+id/weather_detail_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/sunshine_logo_imageview"
+        android:elevation="@dimen/appbar_elevation"/>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -51,8 +49,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context="com.example.admin.solshine.ForecastFragment"
-        tools:layout="@android:layout/list_content" />
+        tools:layout="@android:layout/list_content"
+        android:layout_below="@id/weather_detail_container"/>
 
 
 
-</LinearLayout>
+</RelativeLayout>

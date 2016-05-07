@@ -21,4 +21,6 @@
     <color name="primary_dark">#0288D1</color>  <!-- 700 -->
     <color name="primary_light">#B3E5FC</color> <!-- 100 -->
     <color name="accent">#FFD740</color>
+
+    <color name="light_dark_alha">#2e000000</color>
 </resources>
