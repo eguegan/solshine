@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context="com.example.admin.solshine.MainActivity">
 
+    <ImageView
+        android:id="@+id/weather_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/setuptheme_background"/>
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_height="?attr/actionBarSize"
@@ -20,20 +26,21 @@
 
     <ImageView
         android:id="@+id/sunshine_logo_imageview"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_height="?attr/listPreferredItemHeight"
         android:scaleType="center"
-        android:src="@drawable/ic_logo"
         android:elevation="@dimen/appbar_elevation"
+        android:src="@drawable/ic_logo"
         android:background="@color/primary"
         android:contentDescription="@string/app_name"/>
 
-    <View
-        android:elevation="@dimen/appbar_elevation"
-        android:background="@color/primary"
-        android:layout_below="@id/sunshine_logo_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/details_app_bar_overlap" />
+    <!--<View-->
+        <!--android:elevation="@dimen/appbar_elevation"-->
+        <!--android:background="@color/primary"-->
+        <!--android:layout_below="@id/sunshine_logo_imageview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/details_app_bar_overlap" />-->
 
     <FrameLayout
         android:id="@+id/weather_detail_container"
