@@ -305,4 +305,11 @@ public class Utility {
        spe.putInt(c.getString(R.string.pref_location_status_key), SunshineSyncAdapter.LOCATION_STATUS_UNKNOWN);
        spe.apply();
    }
+
+    public static boolean usingLocalGraphics(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String sunshineArtPack = context.getString(R.string.pref_art_pack_sunshine);
+        return prefs.getString(context.getString(R.string.pref_art_pack_key),
+                sunshineArtPack).equals(sunshineArtPack);
+    }
 }
