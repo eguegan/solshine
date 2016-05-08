@@ -25,6 +25,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.example.admin.solshine.data.WeatherContract;
 import com.example.admin.solshine.gcm.RegistrationIntentService;
@@ -32,7 +33,7 @@ import com.example.admin.solshine.sync.SunshineSyncAdapter;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-public class MainActivity extends AppCompatActivity implements ForecastFragment.Callback {
+public class MainActivity extends AppCompatActivity implements ForecastFragment.Callback, ForecastFragment.OnRecyclerScroll {
 
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final String DETAILFRAGMENT_TAG = "DFTAG";
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
 
     private boolean mTwoPane;
     private String mLocation;
+    private ImageView mParallax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         mLocation = Utility.getPreferredLocation(this);
 
         setContentView(R.layout.activity_main);
+
+        mParallax = (ImageView) findViewById(R.id.weather_background);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -128,6 +132,16 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
                     .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.weather_detail_container, fragment, DETAILFRAGMENT_TAG)
                     .commit();
+    }
+
+    @Override
+    public void doParallax(int dx, int dy) {
+        int max = mParallax.getHeight();
+        if (dy > 0) {
+            mParallax.setTranslationY(Math.max(-max, mParallax.getTranslationY() - dy / 2));
+        } else {
+            mParallax.setTranslationY(Math.min(0, mParallax.getTranslationY() - dy / 2));
+        }
     }
 
     private boolean checkPlayServices() {

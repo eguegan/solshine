@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/weather_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="center"
         android:background="@drawable/setuptheme_background"/>
 
     <android.support.v7.widget.Toolbar

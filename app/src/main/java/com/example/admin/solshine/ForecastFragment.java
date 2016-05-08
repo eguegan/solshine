@@ -96,6 +96,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
 
+    OnRecyclerScroll mOnRecyclerScrolled;
+
     /**
      * A callback interface that all activities containing this fragment must
      * implement. This mechanism allows activities to be notified of item
@@ -108,7 +110,25 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         public void onItemSelected(Uri dateUri);
     }
 
+    public interface OnRecyclerScroll{
+        public void doParallax(int dx, int dy);
+    }
+
     public ForecastFragment() {
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            mOnRecyclerScrolled = (OnRecyclerScroll) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
     }
 
     @Override
@@ -200,27 +220,17 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         // specify an adapter (see also next example)
         mRecyclerView.setAdapter(mForecastAdapter);
 
-
-        final View parallaxView = rootView.findViewById(R.id.weather_detail_container);
-        if (null != parallaxView) {
-            Log.d(TAG, "onScrolled: parallaxView Height: ");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
                     @Override
                     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                         super.onScrolled(recyclerView, dx, dy);
-                        int max = parallaxView.getHeight();
-                        if (dy > 0) {
-                            parallaxView.setTranslationY(Math.max(-max, parallaxView.getTranslationY() - dy / 2));
-                        } else {
-                            parallaxView.setTranslationY(Math.min(0, parallaxView.getTranslationY() - dy / 2));
-                        }
 
+                        mOnRecyclerScrolled.doParallax(dx, dy);
                     }
                 });
             }
-        }
 
         // If there's instance state, mine it for useful information.
         // The end-goal here is that the user never knows that turning their device sideways
