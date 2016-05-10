@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.example.admin.solshine"
+        applicationId "com.etienne.admin.solshine"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
@@ -35,4 +35,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:8.3.0'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
+    compile 'com.google.android.apps.muzei:muzei-api:2.0'
 }

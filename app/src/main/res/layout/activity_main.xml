@@ -6,7 +6,7 @@
     android:baselineAligned="false"
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="vertical"
-    tools:context="com.example.admin.solshine.MainActivity">
+    tools:context="com.etienne.admin.solshine.MainActivity">
 
     <ImageView
         android:id="@+id/weather_background"
@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:background="@color/light_dark_alha"/>
+        android:background="@color/light_dark_alha" />
 
     <ImageView
         android:id="@+id/sunshine_logo_imageview"
@@ -40,15 +40,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sunshine_logo_imageview"
-        android:elevation="@dimen/appbar_elevation"/>
+        android:elevation="@dimen/appbar_elevation" />
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/fragment_forecast"
-        android:name="com.example.admin.solshine.ForecastFragment"
+        android:name="com.etienne.admin.solshine.ForecastFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.example.admin.solshine.ForecastFragment"
+        tools:context="com.etienne.admin.solshine.ForecastFragment"
         tools:layout="@android:layout/list_content"
         android:layout_below="@id/weather_detail_container"/>
 
