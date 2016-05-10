@@ -9,11 +9,16 @@
     tools:context="com.etienne.admin.solshine.MainActivity">
 
     <ImageView
+        android:id="@+id/weather_background_solid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/solid_bg"/>
+
+    <ImageView
         android:id="@+id/weather_background"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="center"
-        android:background="@drawable/setuptheme_background"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/parallax_bg"/>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

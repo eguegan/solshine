@@ -19,7 +19,7 @@
     <permission android:name="com.etienne.android.sunshine.app.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
     <uses-permission android:name="com.etienne.admin.solshine.permission.C2D_MESSAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
