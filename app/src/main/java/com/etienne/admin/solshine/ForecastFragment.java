@@ -137,6 +137,14 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         super.onCreate(savedInstanceState);
         // Add this line in order for this fragment to handle menu events.
         setHasOptionsMenu(true);
+
+        Long date = System.currentTimeMillis();
+
+        String locationSetting = Utility.getPreferredLocation(getActivity());
+        ((Callback) getActivity())
+                .onItemSelected(WeatherContract.WeatherEntry.buildWeatherLocationWithDate(
+                        locationSetting, date)
+                );
     }
 
     @Override

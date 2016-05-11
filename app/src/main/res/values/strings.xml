@@ -15,10 +15,10 @@
     <!-- Format for retrieving art from an external source [CHAR LIMIT=NONE] -->
     <string name="format_art_url" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_<xliff:g id="description">%s</xliff:g>.png</string>
     <!-- Label for Sunshine option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_sunshine">Sunshine</string>
+    <string name="pref_art_pack_label_sunshine">Grey Theme</string>
 
     <!-- Label for cute dogs option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_cute_dogs">Cute dogs</string>
+    <string name="pref_art_pack_label_cute_dogs">Solshine</string>
 
     <!-- Key name for art pack unit preference in SharedPreferences [CHAR LIMIT=NONE] -->
     <string name="pref_art_pack_key" translatable="false">art_pack</string>
@@ -193,6 +193,7 @@
     <string name="condition_960">Storm</string>
     <string name="condition_961">Violent Storm</string>
     <string name="condition_962">Hurricane</string>
+    <string name="condition_unknown">Unknown</string>
 
     <string name="muzei_description">Today\'s weather</string>
 </resources>

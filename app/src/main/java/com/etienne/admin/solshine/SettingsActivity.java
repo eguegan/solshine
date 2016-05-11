@@ -26,6 +26,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -70,6 +71,7 @@ public class SettingsActivity extends PreferenceActivity
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(data, this);
+//                Log.d("TAG", "onActivityResult: " + place);
                 String address = place.getAddress().toString();
                 LatLng latLong = place.getLatLng();
 
@@ -101,14 +103,14 @@ public class SettingsActivity extends PreferenceActivity
                 setPreferenceSummary(locationPreference, address);
 
                 // Add attributions for our new PlacePicker location.
-                if (mAttribution != null) {
-                    mAttribution.setVisibility(View.VISIBLE);
-                } else {
-                    // For pre-Honeycomb devices, we cannot add a footer, so we will use a snackbar
-                    View rootView = findViewById(android.R.id.content);
-                    Snackbar.make(rootView, getString(R.string.attribution_text),
-                            Snackbar.LENGTH_LONG).show();
-                }
+//                if (mAttribution != null) {
+//                    mAttribution.setVisibility(View.VISIBLE);
+//                } else {
+//                    // For pre-Honeycomb devices, we cannot add a footer, so we will use a snackbar
+//                    View rootView = findViewById(android.R.id.content);
+//                    Snackbar.make(rootView, getString(R.string.attribution_text),
+//                            Snackbar.LENGTH_LONG).show();
+//                }
 
                 Utility.resetLocationStatus(this);
                 SunshineSyncAdapter.syncImmediately(this);

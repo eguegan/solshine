@@ -138,10 +138,10 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         forecastAdapterViewHolder.mDateView.setText(Utility.getFriendlyDayString(mContext, dateInMillis, useLongToday));
 
         // Read weather forecast from cursor
-//        String description = Utility.getStringForWeatherCondition(mContext, weatherId);
+        String description = Utility.getStringForWeatherCondition(mContext, weatherId);
 
         // Find TextView and set weather forecast on it
-//        forecastAdapterViewHolder.mDescriptionView.setText(description);
+        forecastAdapterViewHolder.mDescriptionView.setText(description);
 //        forecastAdapterViewHolder.mDescriptionView.setContentDescription(mContext.getString(R.string.a11y_forecast, description));
 
         // For accessibility, we don't want a content description for the icon field

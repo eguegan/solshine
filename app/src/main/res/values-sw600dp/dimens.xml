@@ -55,4 +55,5 @@
 
     <dimen name="forecast_widget_text_width">38dp</dimen>
     <dimen name="forecast_widget_text_size">24dp</dimen>
+    <dimen name="forecast_date_size">20sp</dimen>
 </resources>

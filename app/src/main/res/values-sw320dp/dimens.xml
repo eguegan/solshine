@@ -7,14 +7,15 @@
     <dimen name="forecast_detail_horizontal_padding">32dp</dimen>
 
     <!-- Icon Sizes -->
-    <dimen name="today_icon">80dp</dimen>
+    <dimen name="today_icon">60dp</dimen>
     <dimen name="list_icon">40dp</dimen>
 
-    <dimen name="high_temp_text_size">68sp</dimen>
+
+    <dimen name="high_temp_text_size">50sp</dimen>
     <!-- Text Sizes - We are using DP here rather than SP because these are already large
          font sizes, and going larger will cause lots of view problems.  This is only for
          the large forecast numbers in the forecast list -->
-    <dimen name="forecast_text_size">18dp</dimen>
+    <dimen name="forecast_text_size">16dp</dimen>
 
     <!-- This is an odd width, but we're trying to match the font closely to keep things working
          on devices that don't yet have Roboto -->
@@ -56,5 +57,5 @@
 
     <dimen name="forecast_widget_text_width">38dp</dimen>
     <dimen name="forecast_widget_text_size">19dp</dimen>
-    <dimen name="forecast_date_size">20sp</dimen>
+    <dimen name="forecast_date_size">16sp</dimen>
 </resources>

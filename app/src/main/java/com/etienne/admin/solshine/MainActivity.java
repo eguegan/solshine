@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         mLocation = Utility.getPreferredLocation(this);
         Uri contentUri = getIntent() != null ? getIntent().getData() : null;
 
+        Log.d("TAG", "onCreate: " + contentUri);
         setContentView(R.layout.activity_main);
 
         mParallax = (ImageView) findViewById(R.id.weather_background);
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
             mTwoPane = true;
-            if (savedInstanceState == null) {
+            if (contentUri != null) {
                 DetailFragment fragment = new DetailFragment();
                 if (contentUri != null) {
                     Bundle args = new Bundle();
@@ -135,9 +136,10 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
 
     @Override
     public void onItemSelected(Uri contentUri) {
+
             Bundle args = new Bundle();
             args.putParcelable(DetailFragment.DETAIL_URI, contentUri);
-
+        Log.d("TAG", "onItemSelected: " + args);
             DetailFragment fragment = new DetailFragment();
             fragment.setArguments(args);
 
